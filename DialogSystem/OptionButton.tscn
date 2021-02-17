@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://DialogSystem/OptionButton.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://DialogSystem/fonts/PixelRPG.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 6
+font_data = SubResource( 1 )
+
+[node name="Option" type="Button"]
+margin_right = 12.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Option Here"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="." to="." method="_on_pressed"]

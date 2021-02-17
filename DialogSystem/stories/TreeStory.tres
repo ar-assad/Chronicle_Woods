@@ -1,0 +1,109 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Resource_EditorStory/EXP_EditorStory.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+TYPE = "EXP_Story_editor"
+names = {
+"TextureLibrary": 2,
+"Tree": 1
+}
+story = {
+1: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "Tree",
+"nodes": {
+1: {
+"graph_offset": Vector2( 40, 40 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 500, 100 ),
+"links": {
+0: 5,
+1: 6
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 2,
+"text": "<speaker>Tree</speaker>
+<dialog>I'm a lovely tree, am I not?</dialog>
+<choiceJSON>{\"Yes you are\" : 0, \"No you're not\" : 1}</choiceJSON>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 1920, 80 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 1540, 260 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Tree</speaker>
+<dialog>You aren't the nicest guy out there...</dialog>",
+"type": "line"
+},
+5: {
+"graph_offset": Vector2( 1180, -20 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Tree</speaker>
+<dialog>How lovely.</dialog>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( 980, 200 ),
+"links": {
+0: 5,
+1: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 2,
+"text": "<speaker>Tree</speaker>
+<dialog>What do you mean? -_-</dialog>
+<choiceJSON>{\"You're the loveliest!\": 0, \"You're ugly\": 1}</choiceJSON>",
+"type": "line"
+}
+}
+},
+2: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "TextureLibrary",
+"nodes": {
+1: {
+"graph_offset": Vector2( 40, 40 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "{}",
+"type": "line"
+}
+}
+}
+}
+available_dids = [  ]
+groups = [  ]

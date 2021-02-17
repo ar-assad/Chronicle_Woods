@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Test/Tree.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DialogSystem/Dialog_Player.tscn" type="PackedScene" id=3]
+
+[node name="MainTest" type="Node2D"]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 85.8165, 73.103 )
+
+[node name="Tree" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 136.701, 68.0357 )
+
+[node name="DialogPlayer" parent="." instance=ExtResource( 3 )]
+pause_mode = 2
+_story = "res://DialogSystem/stories/TreeStoryBaked.tres"

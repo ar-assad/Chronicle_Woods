@@ -1,0 +1,206 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://DialogSystem/textures/menu_section_9patch.png" type="Texture" id=1]
+[ext_resource path="res://DialogSystem/fonts/body_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://DialogSystem/textures/arrow.png" type="Texture" id=3]
+[ext_resource path="res://DialogSystem/Dialog_Player.gd" type="Script" id=4]
+[ext_resource path="res://DialogSystem/Simulated_Registry.gd" type="Script" id=5]
+[ext_resource path="res://DialogSystem/OptionList.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://DialogSystem/fonts/PixelRPG.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 6
+font_data = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:draw_center")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=4]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:draw_center")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[node name="DialogPlayer" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="DialogBox" type="Control" parent="."]
+margin_right = 318.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = 26.0
+margin_right = 139.0
+margin_bottom = 90.0
+texture = ExtResource( 1 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBox/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.94385
+margin_top = 12.8878
+margin_right = -17.0562
+margin_bottom = -4.11224
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BodyLabel" type="RichTextLabel" parent="DialogBox/NinePatchRect/MarginContainer"]
+margin_right = 243.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 2 )
+custom_colors/default_color = Color( 0.898039, 0.898039, 0.898039, 1 )
+bbcode_enabled = true
+bbcode_text = "This is how [shake]the dialog will look like.[/shake] Jack a dull boy."
+text = "This is how the dialog will look like. Jack a dull boy."
+fit_content_height = true
+scroll_active = false
+
+[node name="BodyTween" type="Tween" parent="DialogBox/NinePatchRect/MarginContainer/BodyLabel"]
+playback_speed = 20.0
+playback/speed = 20.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogBox/NinePatchRect"]
+anchor_left = -0.043
+anchor_top = -0.083
+anchor_right = -0.043
+anchor_bottom = -0.083
+margin_left = 0.610001
+margin_top = 0.138
+margin_right = 45.61
+margin_bottom = 14.138
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeakerLabel" type="RichTextLabel" parent="DialogBox/NinePatchRect/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 4.0
+margin_right = -7.0
+margin_bottom = 2.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.298039, 0.780392, 0.431373, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Speaker[/center]"
+text = "Speaker"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextIconPatch" type="NinePatchRect" parent="DialogBox/NinePatchRect"]
+anchor_left = -0.043
+anchor_top = -0.083
+anchor_right = -0.043
+anchor_bottom = -0.083
+margin_left = 252.64
+margin_top = 42.4487
+margin_right = 274.64
+margin_bottom = 66.4487
+rect_scale = Vector2( 1.06549, 1.06549 )
+texture = ExtResource( 3 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/NinePatchRect/NextIconPatch"]
+autoplay = "z_play"
+anims/z_play = SubResource( 3 )
+
+[node name="SelectChoicePatch" type="NinePatchRect" parent="DialogBox/NinePatchRect"]
+modulate = Color( 1, 1.16, 8.09, 1 )
+anchor_left = -0.043
+anchor_top = -0.083
+anchor_right = -0.043
+anchor_bottom = -0.083
+margin_left = 200.481
+margin_top = -8.68797
+margin_right = 223.481
+margin_bottom = 16.312
+rect_rotation = 180.0
+rect_scale = Vector2( 1.06549, 1.06549 )
+rect_pivot_offset = Vector2( 37, 37 )
+texture = ExtResource( 3 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/NinePatchRect/SelectChoicePatch"]
+autoplay = "z_play"
+anims/z_play = SubResource( 4 )
+
+[node name="CharacterTexture" type="TextureRect" parent="DialogBox/NinePatchRect"]
+margin_top = -53.0
+margin_right = 47.0
+margin_bottom = -1.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionList" parent="DialogBox" instance=ExtResource( 6 )]
+margin_left = -105.0
+margin_top = 83.0
+margin_right = -21.0
+margin_bottom = 114.0
+
+[node name="SimulatedRegistry" type="Node" parent="."]
+script = ExtResource( 5 )
+[connection signal="tween_all_completed" from="DialogBox/NinePatchRect/MarginContainer/BodyLabel/BodyTween" to="." method="_on_BodyTween_tween_all_completed"]
